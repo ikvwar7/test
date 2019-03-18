@@ -1,6 +1,5 @@
 package test.domain;
 
-import test.Result;
 import test.domain.action.strategies.ActionStrategy;
 
 public class Action {

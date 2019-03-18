@@ -2,8 +2,8 @@ package test.db;
 
 import org.junit.Before;
 import org.junit.Test;
-import test.ArgumentsParser;
-import test.Result;
+import test.utils.ArgumentsParser;
+import test.domain.Result;
 import test.domain.Action;
 import test.domain.action.strategies.ActionStrategy;
 

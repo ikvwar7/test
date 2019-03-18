@@ -1,6 +1,6 @@
 package test.domain.action.strategies;
 
-import test.Result;
+import test.domain.Result;
 import test.db.DBManager;
 import test.domain.actions.object.ActionObject;
 import test.domain.actions.object.NewProductObject;

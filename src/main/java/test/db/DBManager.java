@@ -2,7 +2,7 @@ package test.db;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import test.Result;
+import test.domain.Result;
 import test.domain.actions.object.DemandObject;
 import test.domain.actions.object.NewProductObject;
 import test.domain.actions.object.PurchaseOpbject;
