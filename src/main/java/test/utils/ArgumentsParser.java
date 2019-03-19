@@ -18,6 +18,7 @@ public class ArgumentsParser {
     public static Optional<ActionStrategy> parse(String command) {
 
         String[] args = prepareArgs(command);
+        if (args == null) return Optional.empty();
 
         switch (args[0]) {
             case "NEWPRODUCT":

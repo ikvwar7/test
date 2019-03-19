@@ -7,7 +7,6 @@ import test.domain.Result;
 import test.domain.Action;
 import test.domain.action.strategies.ActionStrategy;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -15,14 +14,14 @@ import static org.junit.Assert.*;
 public class DBManagerTest {
 
     @Before
-    public void createTables() throws SQLException {
+    public void createTables() {
         DBManager dbManager = DBManager.getDBManager();
         dbManager.dropTables();
         dbManager.creteTables();
     }
 
     @Test
-    public void shouldReturnErrorWhenTwoProducts() throws SQLException {
+    public void shouldReturnErrorWhenTwoProducts() {
         Optional<ActionStrategy> actionStrategy1 = ArgumentsParser.parse("NEWPRODUCT iphone");
         Result result1 = new Action(actionStrategy1.get()).process();
 
@@ -34,7 +33,7 @@ public class DBManagerTest {
     }
 
     @Test
-    public void shouldReturnErrorWhenNoProducts() throws SQLException {
+    public void shouldReturnErrorWhenNoProducts() {
 
         Optional<ActionStrategy> actionStrategy = ArgumentsParser.parse("PURCHASE iphone 1 1000 01.01.2017");
         Result result = new Action(actionStrategy.get()).process();
@@ -43,7 +42,7 @@ public class DBManagerTest {
     }
 
     @Test
-    public void shouldReturnErrorWhenWrongPurchaseDate() throws SQLException {
+    public void shouldReturnErrorWhenWrongPurchaseDate() {
         Optional<ActionStrategy> actionStrategy1 = ArgumentsParser.parse("NEWPRODUCT iphone");
         Action action1 = new Action(actionStrategy1.get());
         action1.process();
@@ -60,7 +59,7 @@ public class DBManagerTest {
     }
 
     @Test
-    public void shouldReturnErrorWhenWrongAmountGreaterThanExisted() throws SQLException {
+    public void shouldReturnErrorWhenAmountGreaterThanExisted() {
         Optional<ActionStrategy> actionStrategy1 = ArgumentsParser.parse("NEWPRODUCT iphone");
         Action action1 = new Action(actionStrategy1.get());
         action1.process();
@@ -81,7 +80,7 @@ public class DBManagerTest {
     }
 
     @Test
-    public void shouldReturnCorrectResultWhenDemandAbsent() throws SQLException {
+    public void shouldReturnCorrectResultWhenDemandAbsent() {
         Optional<ActionStrategy> actionStrategy1 = ArgumentsParser.parse("NEWPRODUCT iphone");
         Action action1 = new Action(actionStrategy1.get());
         action1.process();
@@ -98,7 +97,7 @@ public class DBManagerTest {
     }
 
     @Test
-    public void shouldReturnCorrectResult() throws SQLException {
+    public void shouldReturnCorrectResult() {
         Optional<ActionStrategy> actionStrategy1 = ArgumentsParser.parse("NEWPRODUCT iphone");
         Action action1 = new Action(actionStrategy1.get());
         action1.process();

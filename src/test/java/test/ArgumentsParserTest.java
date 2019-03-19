@@ -29,7 +29,7 @@ public class ArgumentsParserTest {
     }
 
     @Test
-    public void shouldReturnCorrectWhenWrongDateFormat() {
+    public void shouldReturnNotEmptyWhenCorrectCommand() {
         String command = "DEMAND iphone 1 1000 01.01.2017";
 
         Optional<ActionStrategy> actionStrategy = ArgumentsParser.parse(command);
@@ -38,7 +38,7 @@ public class ArgumentsParserTest {
     }
 
     @Test
-    public void shouldReturnCorrectWhenNegativeAmount() {
+    public void shouldReturnEmptyWhenNegativeAmount() {
         String command = "DEMAND iphone -1 1000 01.01.2017";
 
         Optional<ActionStrategy> actionStrategy = ArgumentsParser.parse(command);
@@ -47,7 +47,7 @@ public class ArgumentsParserTest {
     }
 
     @Test
-    public void shouldReturnCorrectResult() {
+    public void shouldReturnEmptyWhenWrongDateFormat() {
         String command = "DEMAND iphone 1 1000 01";
 
         Optional<ActionStrategy> actionStrategy = ArgumentsParser.parse(command);
